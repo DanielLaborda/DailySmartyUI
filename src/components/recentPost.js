@@ -4,9 +4,22 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 
-class RecentPost extends Component {
+class RecentPosts extends Component {
   componentDidMount() {
     this.props.fetchRecentPosts();
+  }
+
+  renderPosts = function() {
+    const posts = this.props.recentPost.map((post, index) => {
+      if(index < 3) {
+          return (
+              <li key={index}>
+                  {post.title}
+              </li>
+          )   
+      }
+    })
+    return posts
   }
 
   render() {
@@ -15,9 +28,7 @@ class RecentPost extends Component {
             <div className="recent-post-wrapper">
                 <div className="recentposts-heading">Recent Posts</div>
                 <ul className="recent-post-posts">
-                    <li>Recent post 0</li>
-                    <li>Recent post 1</li>
-                    <li>Recent post 2</li>
+                    {this.renderPosts()}
                 </ul>
             </div>
         </div>
@@ -25,4 +36,10 @@ class RecentPost extends Component {
   }
 }
 
-export default connect(null, actions)(RecentPost);
+function mapStateToProps(state) {
+  return {
+    recentPost: state.posts.recentPosts
+  }
+}
+
+export default connect(mapStateToProps, actions)(RecentPosts);
