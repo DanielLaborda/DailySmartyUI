@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class RecentPost extends Component {
   render() {
     return (
-        <div class="recent-posts">
+        <div className="recent-posts">
             <div className="recent-post-wrapper">
                 <div className="recentposts-heading">Recent Posts</div>
                 <ul className="recent-post-posts">
