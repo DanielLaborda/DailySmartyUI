@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Logo from './logo';
-import RecentPost from './recentPost';
 import SearchBar from './searchBar';
+import RecentPost from './recentPost';
 
-export default class Home extends Component {
+import { connect } from 'react-redux'
+import * as actions from '../actions';
 
-  handleFormSubmit = function(query) {
-    console.log("Try to handle submit for query", query);
-    //navegate to a new route
+class Home extends Component {
+
+  handleSearchBarSubmit = function(query) {
+    this.props.fetchPostsWithQuery(query);
     this.props.history.push("/results");
   }
 
@@ -15,9 +17,11 @@ export default class Home extends Component {
     return (
       <div className='app'>
         <Logo />
-        <SearchBar onSubmit={(query)=>this.handleFormSubmit(query)}/>
+        <SearchBar onSubmit={(query)=>this.handleSearchBarSubmit(query)}/>
         <RecentPost />
       </div>
     );
   }
 }
+
+export default connect(null, actions)(Home);
