@@ -1,4 +1,7 @@
-import { SET_RECENT_POST } from './types.js';
+import { 
+    SET_RECENT_POST,
+    SET_RESULTS_POST 
+} from './types.js';
 import axios from 'axios';
 
 export function fetchRecentPosts() {
@@ -21,7 +24,7 @@ export function fetchPostsWithQuery(query) {
         axios.get(`https://api.dailysmarty.com/search?q=${query}`).then(response => {
             console.log("response api", response.data.posts);
             //dispatch({
-            //    type: SET_RECENT_POST,
+            //    type: SET_RESULTS_POST,
             //    payload: response.data.posts
             //})
         }).catch(error => {
