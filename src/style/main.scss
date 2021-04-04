@@ -1,4 +1,4 @@
-//@import "./base.scss";
+@import "./variables.scss";
 
 .post-topic{
     margin: 0 4px;
@@ -16,13 +16,30 @@ body {
     display: grid;
     justify-content: center;
 }
+
+.logo-main,
+.recent-posts {
+    display: grid;
+    justify-items: center;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 .home {
     height: 100vh;
     width: 66vw;
 
     display: grid;
     align-content: space-around;
-    justify-items: center;
+    justify-items: stretch;
     //grid-template-rows: 1fr 2fr 1fr;
     
 }
+
+
+@import "./searchBar.scss";
+@import "./recentPost.scss";
