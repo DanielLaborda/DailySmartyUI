@@ -22,11 +22,10 @@ export function fetchPostsWithQuery(query) {
     return function(dispatch) {
         //perform our request in here
         axios.get(`https://api.dailysmarty.com/search?q=${query}`).then(response => {
-            console.log("response api", response.data.posts);
-            //dispatch({
-            //    type: SET_RESULTS_POST,
-            //    payload: response.data.posts
-            //})
+            dispatch({
+                type: SET_RESULTS_POST,
+                payload: response.data.posts
+            })
         }).catch(error => {
             console.log("error api", error);
         })

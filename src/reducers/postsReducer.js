@@ -1,5 +1,6 @@
 import {
-    SET_RECENT_POST
+    SET_RECENT_POST,
+    SET_RESULTS_POST
 } from '../actions/types'
 
 const INIT_STATE = {

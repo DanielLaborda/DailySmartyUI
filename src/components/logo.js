@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logoImage from "../../static/assets/images/ds_circle_logo.png";
+import { Link } from 'react-router-dom';
 
 export default class Logo extends Component {
   render() {
@@ -10,7 +11,9 @@ export default class Logo extends Component {
 
     return (
         <div className="logo-main">
-          <img style={size} alt="daily smarty ui image logo big" src={logoImage}/>
+          <Link to="/">
+            <img style={size} alt="daily smarty ui image logo big" src={logoImage}/>
+          </Link>
         </div>
     );
   }
