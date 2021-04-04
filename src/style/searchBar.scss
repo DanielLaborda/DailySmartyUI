@@ -18,6 +18,8 @@
     
             &::placeholder {
                 color: $color-grey-two;
+                font-family: 'Font Awesome\ 5 Free', 'Lato', Arial, Helvetica, sans-serif;
+                font-weight: 600;
             }
             &:focus {
                 outline: none;
