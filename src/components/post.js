@@ -16,7 +16,7 @@ class Post extends Component {
       <div className="post_link" key={index}>
         <div className="post-link-box"></div>
         <div className="post-link-link">
-          <a href={post_link.link_url}>Useful Link #{index}</a>
+          <a href={post_link.link_url}>{this.getNameForPostList(post_link.link_url)}</a>
         </div>
       </div>
       )
@@ -29,6 +29,25 @@ class Post extends Component {
         return <span className="post-topic" key={index}>{topic}</span>
     })
     return topics;
+  }
+
+  getNameForPostList(str){
+    var n = str.lastIndexOf('/');
+    var link = str.substring(n + 1, str.length);
+
+    if((n+1) == str.length){
+      link = str.slice(0, n);
+      n = link.lastIndexOf('/');
+      link = str.substring(n + 1, str.length);
+    }
+
+    if (link.includes('.html')){
+      link = link.substring(0, name.length - 5)
+    }
+    if (link.includes('.htm')){
+      link = link.substring(0, name.length - 4)
+    }
+    return link;
   }
 
   render() {
